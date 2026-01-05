@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WHAT YOU KNOW GOOD?</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>WHAT YOU KNOW GOOD?</h1>
+      <p class="subtitle">Split the old phrase. Guess the second half.</p>
+    </div>
+    <div class="pill">Black • Gold • White</div>
+  </header>
+
+  <main class="grid">
+    <section class="card">
+      <h2>Scan to Download</h2>
+      <p class="small">QR points to local dev URL by default. Regenerate for your live URL anytime.</p>
+      <div class="qrWrap">
+        <img class="qr" src="download-qr.png" alt="Download QR code" />
+        <div class="small mono" id="qrUrlText">http://localhost:5173</div>
+      </div>
+      <div class="row">
+        <label for="qrUrlInput">QR URL</label>
+        <input id="qrUrlInput" type="text" placeholder="Paste your live URL here (optional)">
+      </div>
+      <div class="row">
+        <button id="copyQrUrlBtn" class="ghost">Copy URL</button>
+        <button id="howToRegenBtn" class="ghost">How to regenerate QR</button>
+      </div>
+      <div class="small" id="qrHelp"></div>
+    </section>
+
+    <section class="card">
+      <h2>Filters</h2>
+      <div class="row">
+        <label for="cultureSelect">Culture</label>
+        <select id="cultureSelect"></select>
+        <button id="refreshFiltersBtn" class="ghost">Refresh</button>
+      </div>
+      <div class="row">
+        <label for="subcultureSelect">Subculture</label>
+        <select id="subcultureSelect"></select>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Game Options</h2>
+      <div class="row">
+        <label class="inline"><input id="teamMode" type="checkbox" /> Team Mode (A vs B)</label>
+      </div>
+      <div class="row">
+        <label class="inline"><input id="strictMode" type="checkbox" /> Strict Judge (exact match)</label>
+      </div>
+      <div class="row">
+        <label for="turnSeconds">Turn Timer</label>
+        <input id="turnSeconds" type="number" min="5" max="180" value="30" />
+      </div>
+      <div class="row">
+        <label for="maxRounds">Max Rounds</label>
+        <input id="maxRounds" type="number" min="1" max="200" value="20" />
+      </div>
+      <div class="row">
+        <label for="targetScore">Target Score</label>
+        <input id="targetScore" type="number" min="1" max="200" value="10" />
+      </div>
+      <div class="row">
+        <button id="saveOptionsBtn" class="ghost">Save Options</button>
+        <button id="resetGameBtn" class="danger">Reset Game</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Players</h2>
+      <p class="small">Edit names. In Team Mode, assign players to Team A or Team B.</p>
+      <div class="players" id="playersBox"></div>
+    </section>
+
+    <section class="card">
+      <h2>Round</h2>
+      <div class="promptBox">
+        <div class="meta">
+          <span id="metaFilters" class="tag">Filters: —</span>
+          <span id="metaRound" class="tag">Round: 0/0</span>
+          <span id="metaTurn" class="tag">Turn: —</span>
+          <span id="metaTimer" class="tag">Timer: —</span>
+        </div>
+        <div class="firstPart" id="firstPart">Click “New Round” to start.</div>
+
+        <div class="guessRow">
+          <input id="guessInput" type="text" placeholder="Type the second half..." autocomplete="off" />
+          <button id="checkBtn" class="ghost">Check</button>
+        </div>
+
+        <div class="actions">
+          <button id="newRoundBtn">New Round</button>
+          <button id="revealBtn" class="ghost">Reveal</button>
+          <button id="correctBtn">Correct (+1)</button>
+          <button id="wrongBtn" class="ghost">Wrong</button>
+          <button id="nextTurnBtn" class="ghost">Next Turn</button>
+        </div>
+
+        <div class="result" id="result"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Scoreboard</h2>
+      <div id="scoreboard" class="scoreboard"></div>
+      <div id="teamboard" class="scoreboard" style="margin-top:10px;"></div>
+    </section>
+
+    <section class="card">
+      <h2>Add New Saying</h2>
+      <p class="small">Adds to your device immediately. Optionally POSTs to API too.</p>
+      <div class="row">
+        <label for="addCulture">Culture</label>
+        <input id="addCulture" type="text" placeholder="e.g., American" />
+      </div>
+      <div class="row">
+        <label for="addSubculture">Subculture</label>
+        <input id="addSubculture" type="text" placeholder="e.g., Southern" />
+      </div>
+      <div class="row">
+        <label for="addFirst">First part</label>
+        <input id="addFirst" type="text" placeholder="e.g., If you stay ready" />
+      </div>
+      <div class="row">
+        <label for="addSecond">Second part</label>
+        <input id="addSecond" type="text" placeholder="e.g., you ain't gotta get ready." />
+      </div>
+      <div class="row">
+        <label class="inline"><input id="postToApi" type="checkbox" checked /> Also save to API (server)</label>
+      </div>
+      <div class="row"><button id="addSayingBtn">Add Saying</button></div>
+      <div class="small" id="addStatus"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Install it like an app: browser menu → Install / Add to Home Screen.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
