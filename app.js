@@ -675,11 +675,14 @@ app.get("/api/sayings", (req, res) => {
   const db = readSayings();
   const culture = String(req.query.culture || "").trim();
   const subculture = String(req.query.subculture || "").trim();
-
+  
+  
   let pool = db.sayings;
   if (culture) pool = pool.filter(s => s.culture || "") === culture);
   if (subculture) pool = pool.filter(s => (s.subculture || "") === subculture);
 
+
   res.json({ sayings: pool });
 });
+
 app.use(cors({origin: "https://aseagod1.github.io"}));

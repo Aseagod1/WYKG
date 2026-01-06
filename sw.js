@@ -1,4 +1,4 @@
-const CACHE_NAME = "wykg-v2";
+const CACHE_NAME = "wykg-v4";
 const ASSETS = [
   "/",
   "/index.html",
