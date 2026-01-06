@@ -1,4 +1,4 @@
-const API_BASE = "";
+const API_BASE = "https://wykg-2.onrender.com";
 const MAX_PLAYERS = 10;
 const $ = (id) => document.getElementById(id);
 
@@ -671,3 +671,14 @@ els.addSayingBtn.addEventListener("click", async () => { await addSaying(); });
   initQrHelpers();
   await refreshFiltersQuiet();
 })();
+app.get("/api/sayings", (req, res) => {
+  const db = readSayings();
+  const culture = String(req.query.culture || "").trim();
+  const subculture = String(req.query.subculture || "").trim();
+
+  let pool = db.sayings;
+  if (culture) pool = pool.filter(s => s.culture || "") === culture);
+  if (subculture) pool = pool.filter(s => (s.subculture || "") === subculture);
+
+  res.json({ sayings: pool });
+});
