@@ -682,3 +682,4 @@ app.get("/api/sayings", (req, res) => {
 
   res.json({ sayings: pool });
 });
+app.use(cors({origin: "https://aseagod1.github.io"}));
