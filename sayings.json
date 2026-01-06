@@ -1,0 +1,81 @@
+{
+  "sayings": [
+    {
+      "id": "s1",
+      "culture": "American",
+      "subculture": "Southern",
+      "first": "Don't count your chickens",
+      "second": "before they hatch."
+    },
+    {
+      "id": "s2",
+      "culture": "American",
+      "subculture": "Southern",
+      "first": "A hard head",
+      "second": "makes a soft behind."
+    },
+    {
+      "id": "s3",
+      "culture": "American",
+      "subculture": "Southern",
+      "first": "If you stay ready",
+      "second": "you ain't gotta get ready."
+    },
+    {
+      "id": "s4",
+      "culture": "American",
+      "subculture": "Black American",
+      "first": "All skin folk",
+      "second": "ain't kinfolk."
+    },
+    {
+      "id": "s5",
+      "culture": "American",
+      "subculture": "Black American",
+      "first": "Closed mouths",
+      "second": "don't get fed."
+    },
+    {
+      "id": "s6",
+      "culture": "English-speaking",
+      "subculture": "General English",
+      "first": "A stitch in time",
+      "second": "saves nine."
+    },
+    {
+      "id": "s7",
+      "culture": "English-speaking",
+      "subculture": "General English",
+      "first": "The early bird",
+      "second": "catches the worm."
+    },
+    {
+      "id": "s8",
+      "culture": "Latin",
+      "subculture": "Spanish",
+      "first": "Más vale tarde",
+      "second": "que nunca."
+    },
+    {
+      "id": "s9",
+      "culture": "Chinese",
+      "subculture": "Classic",
+      "first": "A journey of a thousand miles",
+      "second": "begins with a single step."
+    },
+    {
+      "id": "s10",
+      "culture": "Arabic",
+      "subculture": "Classic",
+      "first": "Trust in God",
+      "second": "but tie your camel."
+    },
+    {
+      "id": "s11",
+      "culture": "Irish",
+      "subculture": "Blessing",
+      "first": "May the road rise up",
+      "second": "to meet you."
+    }
+  ]
+}
